@@ -39,7 +39,7 @@ const DetailsScreen=({ navigation })=> {
       />
           <Button
         title="New Button"
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('GoogleMap')}
       />
     </View>
   </>

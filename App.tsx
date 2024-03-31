@@ -9,6 +9,7 @@ import React from 'react';
 import type {PropsWithChildren} from 'react';
 import HomeScreen from './screens/HomeScreen'
 import DetailsScreen from './screens/DetailsScreen'
+import MapScreen from './screens/MapScreen'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
@@ -48,6 +49,7 @@ function App(): React.JSX.Element {
 <Stack.Navigator>
   <Stack.Screen name="Home" component={HomeScreen}  options={{ headerShown: false }} />
   <Stack.Screen name="Details" component={DetailsScreen}   options={{ headerShown: false }} />
+   <Stack.Screen name="GoogleMap" component={MapScreen}   options={{ headerShown: false }} />
 </Stack.Navigator>
 </NavigationContainer>
 
