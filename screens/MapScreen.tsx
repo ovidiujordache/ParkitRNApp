@@ -10,7 +10,7 @@ const MapScreen = ({ navigation }) => {
   const longitudeI = -(6 + (23 / 60) + (31.96 / 3600)); 
   return (
     <>
-        <AppHeader title="Details"   imageUrl={require("../assets/carpark.jpg")} />
+        <AppHeader title="Details"   imageUrl={require("../assets/images/carpark.jpg")} />
     <View style={styles.container}>
 
       <MapView

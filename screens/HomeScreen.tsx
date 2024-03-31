@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <>
    <SafeAreaView style={backgroundStyle}>
-     <AppHeader title="PARKIT "    imageUrl={require('../assets/carpark.jpg')}/>
+     <AppHeader title="PARKIT "    imageUrl={require('../assets/images/carpark.jpg')}/>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
