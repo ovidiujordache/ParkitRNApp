@@ -25,11 +25,10 @@ import {
 
 import Sound from 'react-native-sound';
 
-import Tts from 'react-native-tts';
 
 const DetailsScreen=({ navigation })=> {
 
-const welcomeSound = "welcome.mp3"; 
+const welcomeSound = "hawkins.wav"; 
   // Define a function to play the sound and navigate after a delay
 Sound.setCategory('Playback');
   const playWelcomeSound = () => {
@@ -66,22 +65,43 @@ Sound.setCategory('Playback');
 
          Lorem ipsum sint magna sit non aute ea enim fugiat proident dolore enim in consequat adipisicing.
           </Section>
+    {/*Back Home button*/}
+
+ <View style={styles.space} /> 
       <Button
-        title="Find Free Parking Space"
+        title="Back Home"
        onPress={() => navigation.navigate('Home')}
       />
-          <Button
-        title="New Button"
+
+          {/*Google Map Test button*/}
+
+ <View style={styles.space} /> 
+
+          <Button 
+        title="Google Maps Test"
         onPress={() => navigation.navigate('GoogleMap')}
       />
-        <Button
-        title="Play Welcome Sound"
-        onPress={playWelcomeSound}
-      />
 
+      {/*Test sound button*/}
+
+ <View style={styles.space} /> 
+        <Button
+        title="About US"
+        onPress={playWelcomeSound}
+ 
+      />
+  
     </View>
   </>
   );
 }
+
+const styles = StyleSheet.create({
+ 
+  space: {
+    width: 20, // or whatever size you need
+    height: 20,
+  },
+})
 
 export default DetailsScreen;

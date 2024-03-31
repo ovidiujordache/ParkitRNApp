@@ -46,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
 
-          <Section title=".">
+          <Section title="Home">
           
           <Button 
           
@@ -57,21 +57,11 @@ const HomeScreen = ({ navigation }) => {
       />
    
               Qui ad aliquip excepteur sunt fugiat dolore sit dolor magna quis laborum magna minim ut adipisicing ut ea.]]]
+          Aliquip dolore sint in eiusmod veniam laborum consequat excepteur ullamco anim dolore eiusmod.
+Anim nulla esse fugiat do non nisi id duis excepteur pariatur dolore.
           </Section>
      
-            <Section title="."  >
-        
-              Qui ad aliquip excepteur sunt fugiat dolore sit dolor magna quis laborum magna minim ut adipisicing ut ea.]]]
           
-          <Button 
-          
-        title="Find Free Space "
-       
-        onPress={() => navigation.navigate('Details')}
-
-      />
-
-          </Section>
          
         </View>
       </ScrollView>

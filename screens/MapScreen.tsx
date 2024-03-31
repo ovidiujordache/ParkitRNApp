@@ -19,7 +19,7 @@ const MapScreen = ({ navigation }) => {
   const [text, setText] = useState('');
 
   const speakText = () => {
-    setText('There are 3 spaces available'); // Update the text state
+    setText('There are NO spaces available, at the moment \n \nApplication is under construction\n\nPlease \n come back later '); // Update the text state
     Tts.speak(text);
   };
 
@@ -46,7 +46,7 @@ const MapScreen = ({ navigation }) => {
 
       </MapView>
    
-      <Button title="Find Space" onPress={speakText} />
+      <Button title="Find Spaces" onPress={speakText} />
    
     </View>
   </>
