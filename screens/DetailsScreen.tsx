@@ -28,12 +28,7 @@ import Sound from 'react-native-sound';
 import Tts from 'react-native-tts';
 
 const DetailsScreen=({ navigation })=> {
-  const [text, setText] = useState('');
 
-  const speakText = () => {
-    setText('There are 19 spaces available'); // Update the text state
-    Tts.speak(text);
-  };
 const welcomeSound = "welcome.mp3"; 
   // Define a function to play the sound and navigate after a delay
 Sound.setCategory('Playback');
@@ -83,9 +78,7 @@ Sound.setCategory('Playback');
         title="Play Welcome Sound"
         onPress={playWelcomeSound}
       />
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Speak Text" onPress={speakText} />
-    </View>
+
     </View>
   </>
   );
