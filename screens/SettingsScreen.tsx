@@ -4,6 +4,15 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import AppHeader from './AppHeader'
 import Footer from './Footer'
+
+import Sound from 'react-native-sound';
+
+
+
+
+
+
+
 const SettingsScreen = () => {
    const navigation = useNavigation();
 
@@ -25,6 +34,35 @@ const SettingsScreen = () => {
   const handleGoBack=()=>{
            navigation.navigate("Home");
   }
+    const handleSoundSettings=()=>{
+           navigation.navigate("Home");
+  }
+
+
+  const playAudioAcknowledgment = () => {
+
+
+  // Load the audio file
+  
+const buttonPressSound="btn_press.wav"
+  const buttonSound = new Sound(buttonPressSound, Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.log('Failed to load the sound', error);
+      return;
+    }
+    // Play the audio
+    buttonSound.play((success) => {
+      if (!success) {
+        console.log('Failed to play the sound');
+      }
+      // Release the audio instance after playing
+      buttonSound.release();
+    });
+  });
+};
+
+
+
 
   return (
     <>
@@ -35,22 +73,32 @@ const SettingsScreen = () => {
         <FontAwesome5 name="arrow-left" size={24}  style={styles.icon} />
         <Text style={styles.settingText}>Back  </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.settingItem} onPress={handleThemeChange}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
+        setTimeout(() => { handleThemeChange(); }, 600); }}>
         <FontAwesome5 name="palette" size={24}  style={styles.icon} />
          <View style={styles.underline} />
         <Text style={styles.settingText}>Theme</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.settingItem} onPress={handleClearParkingHistory}>
+       <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
+        setTimeout(() => { handleThemeChange(); }, 600); }}>
+        <FontAwesome5 name="music" size={24}  style={styles.icon} />
+         <View style={styles.underline} />
+        <Text style={styles.settingText}>Audio </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
+        setTimeout(() => { handleClearParkingHistory(); }, 600); }}>
         <FontAwesome5 name="history" size={24}  style={styles.icon} />
          <View style={styles.underline} />
         <Text style={styles.settingText}>Clear Parking History</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.settingItem} onPress={handleAddHomeLocation}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
+        setTimeout(() => { handleAddHomeLocation(); }, 600); }}>
         <FontAwesome5 name="parking" size={24}  style={styles.icon} />
          <View style={styles.underline} />
         <Text style={styles.settingText}>Add New Car Park</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.settingItem} onPress={handleAboutApp}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
+        setTimeout(() => { handleAboutApp(); }, 600); }}>
         <FontAwesome5 name="info" size={24}  style={styles.icon} />
          <View style={styles.underline} />
         <Text  style={styles.settingText}>About App</Text>

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 
-const handleButtonPress = () => {
+const playAudioAcknowledgment = () => {
 
 
   // Load the audio file
@@ -64,8 +64,8 @@ const GridButton = ({ name, image, label }) => {
 
     return (
       <ScrollView>
-        <TouchableOpacity style={{ alignItems: 'center', margin: 10 }} onPress={() => {  handleButtonPress();
-        setTimeout(() => { navigateToScreen(); }, 700); }}>
+        <TouchableOpacity style={{ alignItems: 'center', margin: 10 }} onPress={() => { playAudioAcknowledgment();
+        setTimeout(() => { navigateToScreen(); }, 600); }}>
             <View style={{ borderRadius: 10, overflow: 'hidden' , marginHorizontal: 20}}>
                 <Image source={image} style={{ width: itemSize, height: itemSize, borderRadius: 10 }} />
             </View>

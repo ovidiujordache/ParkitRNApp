@@ -27,11 +27,11 @@ const StatusScreen = () => {
 
     // Set message based on status
     if (status === 'green') {
-      setMessage('Parked');
+      setMessage('Parked !');
     } else if (status === 'red') {
       setMessage('Not Parked');
     } else {
-      setMessage('Parking...');
+      setMessage('Parking ....');
     }
   }, [status]);
 

@@ -4,6 +4,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import AppHeader from './AppHeader';
 import Footer from './Footer';
+import Sound from 'react-native-sound';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -20,6 +21,28 @@ const ProfileScreen = () => {
     // Implement logic for editing email
   };
 
+const playAudioAcknowledgment = () => {
+
+
+  // Load the audio file
+  
+const buttonPressSound="btn_press.wav"
+  const buttonSound = new Sound(buttonPressSound, Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.log('Failed to load the sound', error);
+      return;
+    }
+    // Play the audio
+    buttonSound.play((success) => {
+      if (!success) {
+        console.log('Failed to play the sound');
+      }
+      // Release the audio instance after playing
+      buttonSound.release();
+    });
+  });
+};
+
   return (
     <>
       <AppHeader title="Details" imageUrl={require("../assets/images/gradient.png")} />
@@ -28,13 +51,15 @@ const ProfileScreen = () => {
           <FontAwesome5 name="arrow-left" size={24} style={styles.icon} />
           <Text style={styles.settingText}>Back</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.settingItem} onPress={handleEditName}>
+        <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
+        setTimeout(() => { handleEditName(); }, 600); }}>
           <FontAwesome5 name="user" size={24} style={styles.icon} />
             <View style={styles.underline} />
           <Text style={styles.settingText}>Name</Text>
           <FontAwesome5 name="plus" size={16} style={styles.plusIcon} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.settingItem} onPress={handleEditEmail}>
+        <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
+        setTimeout(() => { handleEditEmail(); }, 600); }}>
           <FontAwesome5 name="at" size={24} style={styles.icon} />
           <Text style={styles.settingText}>Email</Text>
           <FontAwesome5 name="plus" size={16} style={styles.plusIcon} />
@@ -79,7 +104,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: -5,
-  
+
   },
 });
 
