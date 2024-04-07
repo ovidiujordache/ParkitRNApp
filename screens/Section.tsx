@@ -55,8 +55,9 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginRight:10,
     paddingHorizontal: 24,
+   
+    backgroundColor:'#003923',
 
-    backgroundColor:'#669999',
 
   },
   sectionTitle: {
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     fontSize: 18,
     fontWeight: '500',
-    color:'black'
+    color:'white'
   },
   highlight: {
     fontWeight: '100',

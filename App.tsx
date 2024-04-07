@@ -8,10 +8,14 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import HomeScreen from './screens/HomeScreen'
-import DetailsScreen from './screens/DetailsScreen'
+import GridLayout from './screens/GridLayout'
+import AboutUsScreen from './screens/AboutUsScreen'
 import MapScreen from './screens/MapScreen'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SettingsScreen from './screens/SettingsScreen'
+import ProfileScreen from './screens/ProfileScreen'
+import StatusScreen from './screens/StatusScreen'
 import {
   SafeAreaView,
   ScrollView,
@@ -48,8 +52,12 @@ function App(): React.JSX.Element {
           <NavigationContainer>
 <Stack.Navigator>
   <Stack.Screen name="Home" component={HomeScreen}  options={{ headerShown: false }} />
-  <Stack.Screen name="Details" component={DetailsScreen}   options={{ headerShown: false }} />
+  <Stack.Screen name="AboutUs" component={AboutUsScreen}   options={{ headerShown: false }} />
    <Stack.Screen name="GoogleMap" component={MapScreen}   options={{ headerShown: false }} />
+    <Stack.Screen name="Grid" component={GridLayout}   options={{ headerShown: false }} />
+        <Stack.Screen name="Settings" component={SettingsScreen}   options={{ headerShown: false }} />
+       <Stack.Screen name="Profile" component={ProfileScreen}   options={{ headerShown: false }} />
+          <Stack.Screen name="Status" component={StatusScreen}   options={{ headerShown: false }} />
 </Stack.Navigator>
 </NavigationContainer>
 

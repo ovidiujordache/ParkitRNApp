@@ -4,7 +4,10 @@ import Section from './Section'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {ImageAssets} from '../assets';
+import GridLayout from './GridLayout'
 import AppHeader from './AppHeader'
+import Icon from 'react-native-vector-icons/FontAwesome'; //
+import Footer from './Footer'
 import {
   SafeAreaView,
   ScrollView,
@@ -13,7 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
-  Button
+  Button,TouchableOpacity
 } from 'react-native';
 
 import {
@@ -29,16 +32,15 @@ const HomeScreen = ({ navigation }) => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-  return (
+  return ( 
     <>
+
    <SafeAreaView style={backgroundStyle}>
-     <AppHeader title="PARKIT "    imageUrl={require('../assets/images/carpark.jpg')}/>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+     <AppHeader title="PARKIT "    imageUrl={require('../assets/images/gradient.png')}/>
+ 
       <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
+        contentInsetAdjustmentBehavior="automatic" 
+        contentContainerStyle={{ flexGrow: 1 }}
         style={backgroundStyle}>
       
         <View
@@ -46,44 +48,24 @@ const HomeScreen = ({ navigation }) => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
 
-          <Section title="Home">
-          
-          <Button 
-          
-        title="Find Free Space "
-        style={styles.button}
-        onPress={() => navigation.navigate('Details')}
-
-      />
-   
-              Qui ad aliquip excepteur sunt fugiat dolore sit dolor magna quis laborum magna minim ut adipisicing ut ea.]]]
-          Aliquip dolore sint in eiusmod veniam laborum consequat excepteur ullamco anim dolore eiusmod.
-Anim nulla esse fugiat do non nisi id duis excepteur pariatur dolore.
+          <Section title="">
+      
+<GridLayout/>
           </Section>
      
           
-         
+     
         </View>
       </ScrollView>
+         <Footer/>
     </SafeAreaView>
   
     </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    backgroundColor: 'red',
-    borderRadius: 5,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-  },
-});
+
+
 
 
 export default HomeScreen;

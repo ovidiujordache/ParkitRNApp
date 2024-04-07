@@ -17,17 +17,19 @@ const AppHeader = ({ title,imageUrl }) => {
 
 const styles = StyleSheet.create({
   header: {
- height: windowHeight * 0.3 ,
+  height: windowHeight * 0.3 ,
     backgroundColor: '#35495E', // Dark blue
     padding: 16,
     alignItems: 'center',
-  },  logo: {
+  }, 
+
+   logo: {
     width: windowWidth,
     height: windowHeight *0.3 ,
-    marginRight: 10, // Adjust as needed
+    marginRight: 10, 
   },
   title: {
-    color: '#FFFFFF', // White
+    color: 'greeen', 
     fontSize: 20,
     fontWeight: 'bold',
   },
