@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
     <>
 
    <SafeAreaView style={backgroundStyle}>
-     <AppHeader title="PARKIT "    imageUrl={require('../assets/images/gradient.png')}/>
+     <AppHeader title="PARKIT "    imageUrl={require('../assets/images/gradient3.png')}/>
  
       <ScrollView
         contentInsetAdjustmentBehavior="automatic" 

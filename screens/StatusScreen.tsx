@@ -93,7 +93,7 @@ const StatusScreen = () => {
 
   return (
     <>
-      <AppHeader title="Details" imageUrl={require('../assets/images/gradient.png')} />
+      <AppHeader title="Details" imageUrl={require('../assets/images/gradient3.png')} />
       <View style={styles.container}>
         <TouchableOpacity style={[styles.settingItem, { marginBottom: 100 }]} onPress={handGoBack}>
           <FontAwesome5 name="arrow-left" size={24} style={styles.icon} />

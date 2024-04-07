@@ -67,7 +67,7 @@ Sound.setCategory('Playback');
 
   return (
     <>
-  <AppHeader title="About Us"   imageUrl={require("../assets/images/gradient.png")}  />
+  <AppHeader title="About Us"   imageUrl={require("../assets/images/gradient3.png")}  />
    <View style={styles.space} /> 
      <TouchableOpacity style={styles.settingItem} onPress={handleGoBack}>
         <FontAwesome5 name="arrow-left" size={24}  style={{color:'#184A00',marginLeft: 20}} />

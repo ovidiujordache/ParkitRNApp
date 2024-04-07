@@ -20,7 +20,7 @@ const MapScreen = ({ navigation }) => {
 
   return (
     <>
-      <AppHeader title="Details" imageUrl={require("../assets/images/gradient.png")} />
+      <AppHeader title="Details" imageUrl={require("../assets/images/gradient3.png")} />
 
       <View style={styles.container}>
         <MapView

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity,Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,Button ,  SafeAreaView,
+  ScrollView,} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import AppHeader from './AppHeader'
@@ -67,7 +68,9 @@ const buttonPressSound="btn_press.wav"
   return (
     <>
 
-      <AppHeader title="Details" imageUrl={require("../assets/images/gradient.png")} />
+      <AppHeader title="Details" imageUrl={require("../assets/images/gradient3.png")} />
+
+      <ScrollView>
     <View style={styles.container}>
           <TouchableOpacity style={styles.settingItem} onPress={handleGoBack}>
         <FontAwesome5 name="arrow-left" size={24}  style={styles.icon} />
@@ -75,21 +78,30 @@ const buttonPressSound="btn_press.wav"
       </TouchableOpacity>
       <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
         setTimeout(() => { handleThemeChange(); }, 600); }}>
-        <FontAwesome5 name="palette" size={24}  style={styles.icon} />
+        <FontAwesome5 name="wheelchair" size={24} style={{color:"blue" , padding:10,
+    marginRight: 10,}}/>
          <View style={styles.underline} />
-        <Text style={styles.settingText}>Theme</Text>
+        <Text style={styles.settingText}>Disabled Spaces</Text>
       </TouchableOpacity>
-       <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
+      <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
         setTimeout(() => { handleThemeChange(); }, 600); }}>
-        <FontAwesome5 name="music" size={24}  style={styles.icon} />
+        <FontAwesome5 name="plug" size={24}  style={{color:"red" , padding:10,
+    marginRight: 10,}} />
          <View style={styles.underline} />
-        <Text style={styles.settingText}>Audio </Text>
+        <Text style={styles.settingText}>EV Charging</Text>
       </TouchableOpacity>
+       <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
+        setTimeout(() => { handleClearParkingHistory(); }, 600); }}>
+        <FontAwesome5 name="map" size={24}  style={styles.icon} />
+         <View style={styles.underline} />
+        <Text style={styles.settingText}>Proximity Spaces [future feature->find ]</Text>
+      </TouchableOpacity>
+
       <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
         setTimeout(() => { handleClearParkingHistory(); }, 600); }}>
         <FontAwesome5 name="history" size={24}  style={styles.icon} />
          <View style={styles.underline} />
-        <Text style={styles.settingText}>Clear Parking History</Text>
+        <Text style={styles.settingText}>Parking History</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
         setTimeout(() => { handleAddHomeLocation(); }, 600); }}>
@@ -97,15 +109,28 @@ const buttonPressSound="btn_press.wav"
          <View style={styles.underline} />
         <Text style={styles.settingText}>Add New Car Park</Text>
       </TouchableOpacity>
+             <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
+        setTimeout(() => { handleThemeChange(); }, 600); }}>
+        <FontAwesome5 name="music" size={24}  style={styles.icon} />
+         <View style={styles.underline} />
+        <Text style={styles.settingText}>Audio </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
+        setTimeout(() => { handleThemeChange(); }, 600); }}>
+        <FontAwesome5 name="palette" size={24}  style={styles.icon} />
+         <View style={styles.underline} />
+        <Text style={styles.settingText}>Theme</Text>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
         setTimeout(() => { handleAboutApp(); }, 600); }}>
         <FontAwesome5 name="info" size={24}  style={styles.icon} />
          <View style={styles.underline} />
         <Text  style={styles.settingText}>About App</Text>
       </TouchableOpacity>
-   <Footer/>
+
     </View>
  
+</ScrollView>
 
 
     </>

@@ -45,7 +45,7 @@ const buttonPressSound="btn_press.wav"
 
   return (
     <>
-      <AppHeader title="Details" imageUrl={require("../assets/images/gradient.png")} />
+      <AppHeader title="Details" imageUrl={require("../assets/images/gradient3.png")} />
       <View style={styles.container}>
         <TouchableOpacity style={styles.settingItem} onPress={handleGoBack}>
           <FontAwesome5 name="arrow-left" size={24} style={styles.icon} />
@@ -66,7 +66,7 @@ const buttonPressSound="btn_press.wav"
             <View style={styles.underline} />
         </TouchableOpacity>
       </View>
-      <Footer />
+{/*      <Footer />*/}
     </>
   );
 };

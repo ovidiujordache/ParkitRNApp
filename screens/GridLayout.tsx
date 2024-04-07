@@ -34,16 +34,16 @@ const buttonPressSound="btn_press.wav"
 const { width } = Dimensions.get('window');
 
 const iconDataTop = [
-    { name: "Home", image: require('../assets/images/home_50.png'), label: 'Home' },
+    { name: "Home", image: require('../assets/images/feature_50.png'), label: ' New Feature ?' },
       
     { name: "Profile", image: require('../assets/images/profile_50.png'), label: 'Profile' },
  
-     { name: "GoogleMap", image: require('../assets/images/parking_btn_50.png'), label: 'Park IT' },
+     { name: "GoogleMap", image: require('../assets/images/parking_50.png'), label: 'Park IT' },
  
 ];
 
 const iconDataBottom = [
-          { name: "AboutUs", image: require('../assets/images/aboutus_50.png'), label: 'About Us' },
+          { name: "AboutUs", image: require('../assets/images/about_50.png'), label: 'About App' },
 
     { name: "Settings", image: require('../assets/images/settings_50.png'), label: 'Settings' },
         { name: "Status", image: require('../assets/images/status_50.png'), label: 'Status' },
