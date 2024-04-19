@@ -1205,6 +1205,24 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.57.0.tgz"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
+"@expo/config-plugins@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/@expo/config-plugins/-/config-plugins-2.0.4.tgz"
+  integrity sha512-JGt/X2tFr7H8KBQrKfbGo9hmCubQraMxq5sj3bqDdKmDOLcE1a/EDCP9g0U4GHsa425J8VDIkQUHYz3h3ndEXQ==
+  dependencies:
+    "@expo/config-types" "^41.0.0"
+    "@expo/json-file" "8.2.30"
+    "@expo/plist" "0.0.13"
+    debug "^4.3.1"
+    find-up "~5.0.0"
+    fs-extra "9.0.0"
+    getenv "^1.0.0"
+    glob "7.1.6"
+    resolve-from "^5.0.0"
+    slash "^3.0.0"
+    xcode "^3.0.1"
+    xml2js "^0.4.23"
+
 "@expo/config-plugins@~7.8.2":
   version "7.8.4"
   resolved "https://registry.npmjs.org/@expo/config-plugins/-/config-plugins-7.8.4.tgz"
@@ -1227,6 +1245,11 @@
     slugify "^1.6.6"
     xcode "^3.0.1"
     xml2js "0.6.0"
+
+"@expo/config-types@^41.0.0":
+  version "41.0.0"
+  resolved "https://registry.npmjs.org/@expo/config-types/-/config-types-41.0.0.tgz"
+  integrity sha512-Ax0pHuY5OQaSrzplOkT9DdpdmNzaVDnq9VySb4Ujq7UJ4U4jriLy8u93W98zunOXpcu0iiKubPsqD6lCiq0pig==
 
 "@expo/config-types@^50.0.0", "@expo/config-types@^50.0.0-alpha.1":
   version "50.0.0"
@@ -1272,6 +1295,16 @@
     json5 "^2.2.2"
     write-file-atomic "^2.3.0"
 
+"@expo/json-file@8.2.30":
+  version "8.2.30"
+  resolved "https://registry.npmjs.org/@expo/json-file/-/json-file-8.2.30.tgz"
+  integrity sha512-vrgGyPEXBoFI5NY70IegusCSoSVIFV3T3ry4tjJg1MFQKTUlR7E0r+8g8XR6qC705rc2PawaZQjqXMAVtV6s2A==
+  dependencies:
+    "@babel/code-frame" "~7.10.4"
+    fs-extra "9.0.0"
+    json5 "^1.0.1"
+    write-file-atomic "^2.3.0"
+
 "@expo/plist@^0.1.0":
   version "0.1.0"
   resolved "https://registry.npmjs.org/@expo/plist/-/plist-0.1.0.tgz"
@@ -1280,6 +1313,15 @@
     "@xmldom/xmldom" "~0.7.7"
     base64-js "^1.2.3"
     xmlbuilder "^14.0.0"
+
+"@expo/plist@0.0.13":
+  version "0.0.13"
+  resolved "https://registry.npmjs.org/@expo/plist/-/plist-0.0.13.tgz"
+  integrity sha512-zGPSq9OrCn7lWvwLLHLpHUUq2E40KptUFXn53xyZXPViI0k9lbApcR9KlonQZ95C+ELsf0BQ3gRficwK92Ivcw==
+  dependencies:
+    base64-js "^1.2.3"
+    xmlbuilder "^14.0.0"
+    xmldom "~0.5.0"
 
 "@expo/sdk-runtime-versions@^1.0.0":
   version "1.0.0"
@@ -1787,6 +1829,14 @@
     graceful-fs "^4.1.3"
     prompts "^2.4.2"
     semver "^7.5.2"
+
+"@react-native-voice/voice@^3.2.4":
+  version "3.2.4"
+  resolved "https://registry.npmjs.org/@react-native-voice/voice/-/voice-3.2.4.tgz"
+  integrity sha512-4i3IpB/W5VxCI7BQZO5Nr2VB0ecx0SLvkln2Gy29cAQKqgBl+1ZsCwUBChwHlPbmja6vA3tp/+2ADQGwB1OhHg==
+  dependencies:
+    "@expo/config-plugins" "^2.0.0"
+    invariant "^2.2.4"
 
 "@react-native/assets-registry@0.73.1":
   version "0.73.1"
@@ -2593,6 +2643,11 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
+
+at-least-node@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/at-least-node/-/at-least-node-1.0.0.tgz"
+  integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
 available-typed-arrays@^1.0.7:
   version "1.0.7"
@@ -3997,6 +4052,16 @@ fs-extra@^8.1.0:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
+fs-extra@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-9.0.0.tgz"
+  integrity sha512-pmEYSk3vYsG/bF651KPUXZ+hvjpgWYw/Gc7W9NFUe3ZVLczKKWIij3IKpOrQcdw4TILtibFslZ0UmR8Vvzig4g==
+  dependencies:
+    at-least-node "^1.0.0"
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^1.0.0"
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
@@ -5237,6 +5302,13 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.npmjs.org/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz"
   integrity sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
 
+json5@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/json5/-/json5-1.0.2.tgz"
+  integrity sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==
+  dependencies:
+    minimist "^1.2.0"
+
 json5@^2.2.2, json5@^2.2.3:
   version "2.2.3"
   resolved "https://registry.npmjs.org/json5/-/json5-2.2.3.tgz"
@@ -5246,6 +5318,15 @@ jsonfile@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/jsonfile/-/jsonfile-4.0.0.tgz"
   integrity sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
+jsonfile@^6.0.1:
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/jsonfile/-/jsonfile-6.1.0.tgz"
+  integrity sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==
+  dependencies:
+    universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
 
@@ -5658,7 +5739,7 @@ minimatch@^3.0.2, minimatch@^3.0.4, minimatch@^3.0.5, minimatch@^3.1.1, minimatc
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@^1.2.6:
+minimist@^1.2.0, minimist@^1.2.6:
   version "1.2.8"
   resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz"
   integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
@@ -6272,6 +6353,11 @@ react-native-maps@^1.12.0:
   dependencies:
     "@types/geojson" "^7946.0.13"
 
+react-native-permissions@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.npmjs.org/react-native-permissions/-/react-native-permissions-4.1.5.tgz"
+  integrity sha512-r6VMRacASmtRHS+GZ+5HQCp9p9kiE+UU9magHOZCXZLTJitdTuVHWZRrb4v4oqZGU+zAp3mZhTQftuMMv+WLUg==
+
 react-native-reanimated@^3.8.1, "react-native-reanimated@>= 1.0.0":
   version "3.8.1"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-3.8.1.tgz"
@@ -6325,7 +6411,7 @@ react-native-webview@^13.8.4:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
 
-react-native@*, "react-native@>= 0.64.3", react-native@>=0.8.0, react-native@0.73.6:
+react-native@*, "react-native@>= 0.60.2", "react-native@>= 0.64.3", react-native@>=0.70.0, react-native@>=0.8.0, react-native@0.73.6:
   version "0.73.6"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.73.6.tgz"
   integrity sha512-oqmZe8D2/VolIzSPZw+oUd6j/bEmeRHwsLn1xLA5wllEYsZ5zNuMsDus235ONOnCRwexqof/J3aztyQswSmiaA==
@@ -6396,7 +6482,7 @@ react-test-renderer@^18.2.0, react-test-renderer@18.2.0:
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.0"
 
-react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, "react@>= 17.0.1", react@>=16.8, react@>=17.0.0, react@18.2.0:
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, "react@>= 17.0.1", react@>=16.8, react@>=17.0.0, react@>=18.1.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
@@ -7422,6 +7508,16 @@ universalify@^0.2.0:
   resolved "https://registry.npmjs.org/universalify/-/universalify-0.2.0.tgz"
   integrity sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==
 
+universalify@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/universalify/-/universalify-1.0.0.tgz"
+  integrity sha512-rb6X1W158d7pRQBg5gkR8uPaSfiids68LTJQYOtEUhoJUWBdaQHsuT/EUduxXYxcrt4r5PJ4fuHW1MHT6p0qug==
+
+universalify@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/universalify/-/universalify-2.0.1.tgz"
+  integrity sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==
+
 unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz"
@@ -7690,6 +7786,14 @@ xml-name-validator@^4.0.0:
   resolved "https://registry.npmjs.org/xml-name-validator/-/xml-name-validator-4.0.0.tgz"
   integrity sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==
 
+xml2js@^0.4.23:
+  version "0.4.23"
+  resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.4.23.tgz"
+  integrity sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==
+  dependencies:
+    sax ">=0.6.0"
+    xmlbuilder "~11.0.0"
+
 xml2js@0.6.0:
   version "0.6.0"
   resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.6.0.tgz"
@@ -7717,6 +7821,11 @@ xmlchars@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/xmlchars/-/xmlchars-2.2.0.tgz"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
+
+xmldom@~0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/xmldom/-/xmldom-0.5.0.tgz"
+  integrity sha512-Foaj5FXVzgn7xFzsKeNIde9g6aFBxTPi37iwsno8QvApmtg7KYrr+OPyRHcJF7dud2a5nGRBXK3n0dL62Gf7PA==
 
 xtend@~4.0.1:
   version "4.0.2"

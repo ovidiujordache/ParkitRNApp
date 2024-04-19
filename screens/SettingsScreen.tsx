@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import AppHeader from './AppHeader'
 import Footer from './Footer'
 
-import Sound from 'react-native-sound';
+import useAudioPlayer from '../hooks/useAudioPlayer'; 
 
 
 
@@ -39,27 +39,16 @@ const SettingsScreen = () => {
            navigation.navigate("Home");
   }
 
-
+  const playSound = useAudioPlayer();
   const playAudioAcknowledgment = () => {
 
 
   // Load the audio file
   
 const buttonPressSound="btn_press.wav"
-  const buttonSound = new Sound(buttonPressSound, Sound.MAIN_BUNDLE, (error) => {
-    if (error) {
-      console.log('Failed to load the sound', error);
-      return;
-    }
-    // Play the audio
-    buttonSound.play((success) => {
-      if (!success) {
-        console.log('Failed to play the sound');
-      }
-      // Release the audio instance after playing
-      buttonSound.release();
-    });
-  });
+
+
+   playSound(buttonPressSound); 
 };
 
 
@@ -67,13 +56,12 @@ const buttonPressSound="btn_press.wav"
 
   return (
     <>
-
-      <AppHeader title="Details" imageUrl={require("../assets/images/gradient3.png")} />
+       <AppHeader title="" imageUrl={require('../assets/images/logor.png')} />
 
       <ScrollView>
     <View style={styles.container}>
           <TouchableOpacity style={styles.settingItem} onPress={handleGoBack}>
-        <FontAwesome5 name="arrow-left" size={24}  style={styles.icon} />
+        <FontAwesome5 name="arrow-left" size={60}  style={styles.icon} />
         <Text style={styles.settingText}>Back  </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
@@ -141,7 +129,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#003923', // Updated background color
+    backgroundColor: '#50cf92', // Updated background color
   },
   settingItem: {
     flexDirection: 'row',
@@ -154,15 +142,15 @@ const styles = StyleSheet.create({
   icon: {
     padding:10,
     marginRight: 10,
-    color:'white'
+    color:'#3a0000'
   },
  settingText: {
     fontSize: 20, // Increased font size
     marginLeft: 10,
-    color: 'white',
+    color: '#060000',
   },
     underline: {
-  backgroundColor: 'green',
+  backgroundColor: '#760000',
     height: 2,
     position: 'absolute',
     left: 0,

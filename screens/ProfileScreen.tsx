@@ -44,11 +44,11 @@ const buttonPressSound="btn_press.wav"
 };
 
   return (
-    <>
-      <AppHeader title="Details" imageUrl={require("../assets/images/gradient3.png")} />
+    <>   
+    <AppHeader title="" imageUrl={require('../assets/images/logor.png')} />
       <View style={styles.container}>
         <TouchableOpacity style={styles.settingItem} onPress={handleGoBack}>
-          <FontAwesome5 name="arrow-left" size={24} style={styles.icon} />
+          <FontAwesome5 name="arrow-left" size={60} style={styles.icon} />
           <Text style={styles.settingText}>Back</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
@@ -75,30 +75,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#003923',
+      backgroundColor: '#9eee58',
   },
   settingItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between', // Align items horizontally
+    justifyContent: 'space-between', 
     paddingVertical: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
   icon: {
     marginRight: 10,
-    color: 'white',
+    color: '#440000',
   },
   settingText: {
     fontSize: 20,
-    color: 'white',
-    flex: 1, // Take up remaining space
+    color: '#8a0000',
+    flex: 1, 
   },
   plusIcon: {
-    color: 'white',
+    color: '#6c0000',
   },
     underline: {
-  backgroundColor: 'green',
+  backgroundColor: '#060000',
     height: 2,
     position: 'absolute',
     left: 0,

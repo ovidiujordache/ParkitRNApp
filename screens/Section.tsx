@@ -56,13 +56,14 @@ const styles = StyleSheet.create({
     marginRight:10,
     paddingHorizontal: 24,
    
-    backgroundColor:'#003923',
+    backgroundColor:'#57c100',
 
 
   },
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+ 
   },
   sectionDescription: {
 
@@ -70,7 +71,8 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     fontSize: 18,
     fontWeight: '500',
-    color:'white'
+    color:'#07390f'
+
   },
   highlight: {
     fontWeight: '100',

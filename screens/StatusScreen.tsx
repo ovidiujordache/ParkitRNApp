@@ -93,11 +93,11 @@ const StatusScreen = () => {
 
   return (
     <>
-      <AppHeader title="Details" imageUrl={require('../assets/images/gradient3.png')} />
+     <AppHeader title="" imageUrl={require('../assets/images/logor.png')} />
       <View style={styles.container}>
         <TouchableOpacity style={[styles.settingItem, { marginBottom: 100 }]} onPress={handGoBack}>
-          <FontAwesome5 name="arrow-left" size={24} style={styles.icon} />
-          <Text style={styles.settingText}>Back</Text>
+          <FontAwesome5 name="arrow-left" size={60} style={[styles.icon,{color:'#000000'}]} />
+          <Text style={[styles.settingText,{color:'#000000',fontSize:30}]}>Back</Text>
         </TouchableOpacity>
         <Text style={styles.message}>{message}</Text>
         <View style={styles.animationContainer}>
@@ -123,14 +123,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-
-    backgroundColor: '#003923',
+    justifyContent: 'left',
+    backgroundColor: '#00bf63',
   },
   message: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color:'#740000'
   },
   animationContainer: {
     flexDirection: 'row',

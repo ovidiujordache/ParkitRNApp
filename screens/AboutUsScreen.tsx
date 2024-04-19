@@ -66,16 +66,16 @@ Sound.setCategory('Playback');
 
 
   return (
-    <>
-  <AppHeader title="About Us"   imageUrl={require("../assets/images/gradient3.png")}  />
+    <>     
+    <AppHeader title="" imageUrl={require('../assets/images/logor.png')} />
    <View style={styles.space} /> 
      <TouchableOpacity style={styles.settingItem} onPress={handleGoBack}>
-        <FontAwesome5 name="arrow-left" size={24}  style={{color:'#184A00',marginLeft: 20}} />
-        <Text  style={{color:'#184A00',marginLeft: 20}}>Back  </Text>
+        <FontAwesome5 name="arrow-left" size={60}  style={{color:'#000000',marginLeft: 20}} />
+        <Text  style={{color:'#010d03',marginLeft: 20,fontSize:30}}>Back  </Text>
       </TouchableOpacity>
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
  
-              <Section title="About Us">
+              <Section title="About Us" >
              
 
 What is this App? Helping people find the nearest car park space !? I hate to break it to you, Hive 6, but the 
@@ -85,7 +85,7 @@ the world was doing just fine before your app came along.Ha,Ha !
 <TouchableHighlight onPress={playAboutUs}>
      <View>
       
-                <Icon name="music" size={44} color="white"  />
+                <Icon name="music" size={44} color="#000000"  />
       <Text style={styles.text}>About Us</Text>
      </View>
  </TouchableHighlight>
