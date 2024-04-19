@@ -16,6 +16,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SettingsScreen from './screens/SettingsScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import StatusScreen from './screens/StatusScreen'
+
+import EVMapScreen from './screens/EVMapScreen'
+
+import DisabilityMapScreen from './screens/DisabilityMapScreen'
+
 import {
   SafeAreaView,
   ScrollView,
@@ -58,6 +63,8 @@ function App(): React.JSX.Element {
         <Stack.Screen name="Settings" component={SettingsScreen}   options={{ headerShown: false }} />
        <Stack.Screen name="Profile" component={ProfileScreen}   options={{ headerShown: false }} />
           <Stack.Screen name="Status" component={StatusScreen}   options={{ headerShown: false }} />
+                   <Stack.Screen name="EVMap" component={EVMapScreen}   options={{ headerShown: false }} />
+                   <Stack.Screen name="DisabilityMap" component={DisabilityMapScreen}   options={{ headerShown: false }} />
 </Stack.Navigator>
 </NavigationContainer>
 

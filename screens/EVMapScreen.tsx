@@ -8,12 +8,21 @@ import useAudioPlayer from '../hooks/useAudioPlayer';
 import useVoiceRecognition from '../hooks/useVoiceRecognition';
 import usePermissions from '../hooks/usePermissions'; 
 import useTextToSpeech from '../hooks/useTextToSpeech';
+import Map from './Map'
 const { width } = Dimensions.get('window');
 const itemSize = (width / 4) * 0.6;
 
-const MapScreen = ({ navigation }) => {
-  const latitudeI = 53 + (58 / 60) + (56.30 / 3600);
-  const longitudeI = -(6 + (23 / 60) + (31.96 / 3600));
+const EVMapScreen = ({ navigation }) => {
+
+  //since there is more than one optrion, navigate to default value
+    const lat= 53.982967;
+    const long=-6.391983;
+    const markers = [
+    { latitude: 53.982967, longitude: -6.391983, title: 'EV Point', description: 'EV charge Point' },
+      { latitude: 53.982974, longitude: -6.39195, title: 'EV Point', description: 'EV charge Point' }
+    // Add more markers as needed
+  ];
+
   const [text, setText] = useState('');
 
   const { recognizedText, startListening ,isListening,stopListening,setRecognizedText} = useVoiceRecognition();
@@ -42,10 +51,8 @@ useEffect(() => {
     console.log("User said yes");
      setTimeout(() => {
       console.log("Navigating to Parking");
-      
-   
+      handleNavigation(lat,long)
 
-    handleNavigation(latitudeI,longitudeI)
     }, 500); // Delay navigation to test timing issue
 
   } else if (recognizedText.toLowerCase().includes('no') )  {
@@ -89,22 +96,11 @@ const initiateInteraction = async () => {
 
       <View style={styles.container}>
 
-       
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: latitudeI,
-            longitude: longitudeI,
-            latitudeDelta: 0.000522,
-            longitudeDelta: 0.000221,
-          }}>
-               
-          <Marker
-            coordinate={{ latitude: latitudeI, longitude: longitudeI }}
-            title="Marker Title"
-            description="Marker Description"
-          />
-        </MapView>
+          <Map markers={markers} 
+          latitudeDelta={ 0.00021}
+            longitudeDelta={ 0.000210}
+      />
+   
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Image
@@ -200,4 +196,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MapScreen;
+export default EVMapScreen;

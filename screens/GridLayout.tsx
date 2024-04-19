@@ -23,14 +23,17 @@ const { width } = Dimensions.get('window');
 const itemSize = (width / 3) * 0.4;  
 
 const iconDataTop = [
-  { name: "Home", image: require('../assets/images/feature_50.png'), label: 'WildCard ?' },
-  { name: "Profile", image: require('../assets/images/profile_50.png'), label: 'Profile' },
+ 
+  { name: "Profile", image: require('../assets/images/Ovi_pic.png'), label: 'Profile' },
+    { name: "EVMap", image: require('../assets/images/ev_50.png'), label: 'EV Charge' },
   { name: "GoogleMap", image: require('../assets/images/iparkitprologo5.png'), label: 'iParkitPro' },
 ];
 
 const iconDataBottom = [
-  { name: "AboutUs", image: require('../assets/images/about_50.png'), label: 'About App' },
+
   { name: "Settings", image: require('../assets/images/settings_50.png'), label: 'Settings' },
+
+  { name: "DisabilityMap", image: require('../assets/images/disability3_50.png'), label: 'Disability Spaces' },
   { name: "Status", image: require('../assets/images/status_50.png'), label: 'Status' },
 ];
 
