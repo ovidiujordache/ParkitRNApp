@@ -20,6 +20,7 @@ import StatusScreen from './screens/StatusScreen'
 import EVMapScreen from './screens/EVMapScreen'
 
 import DisabilityMapScreen from './screens/DisabilityMapScreen'
+import { LayoutProvider } from './screens/LayoutContext'
 
 import {
   SafeAreaView,
@@ -53,7 +54,7 @@ function App(): React.JSX.Element {
 
 
   return (
- 
+   <LayoutProvider>
           <NavigationContainer>
 <Stack.Navigator>
   <Stack.Screen name="Home" component={HomeScreen}  options={{ headerShown: false }} />
@@ -67,7 +68,7 @@ function App(): React.JSX.Element {
                    <Stack.Screen name="DisabilityMap" component={DisabilityMapScreen}   options={{ headerShown: false }} />
 </Stack.Navigator>
 </NavigationContainer>
-
+  </LayoutProvider>
   );
 }
 

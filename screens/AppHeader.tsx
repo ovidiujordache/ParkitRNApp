@@ -30,8 +30,8 @@ const AppHeader = ({ title, imageUrl }) => {
       height: isLandscape ? Dimensions.get('window').height * 0.4 : Dimensions.get('window').height * 0.5,
       width: isLandscape ? Dimensions.get('window').width * 0.4 : Dimensions.get('window').width * 0.5,
       resizeMode: 'contain',
-     marginTop: 40,
-      padding: 10
+      marginTop: 40,
+      
     },
     title: {
       color: 'green',

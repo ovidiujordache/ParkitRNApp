@@ -8,7 +8,10 @@ import useAudioPlayer from '../hooks/useAudioPlayer';
 import useVoiceRecognition from '../hooks/useVoiceRecognition';
 import usePermissions from '../hooks/usePermissions'; 
 import useTextToSpeech from '../hooks/useTextToSpeech';
+import disability4_80 from '../assets/images/disability4_80.png'
 import Map from './Map'
+import { useLayout } from './LayoutContext';
+
 const { width } = Dimensions.get('window');
 const itemSize = (width / 4) * 0.6;
 
@@ -18,12 +21,12 @@ const DisabilityMapScreen = ({ navigation }) => {
     const lat= 53.982125;
     const long=-6.39268;
     const markers = [
-    { latitude: 53.982125, longitude: -6.39268, title: 'Disability Space', description: 'parking space dedicate to people with Disability' },
-      { latitude: 53.982133, longitude: -6.392628, title: 'Disability Space', description: 'parking space dedicate to people with Disability' },
-        { latitude: 53.982143, longitude: -6.392578, title: 'Disability Space', description: 'parking space dedicate to people with Disability' },
-          { latitude: 53.982154, longitude: -6.39253, title: 'Disability Space', description: 'parking space dedicate to people with Disability' },
-            { latitude: 53.98216, longitude: -6.392487, title: 'Disability Space', description: 'parking space dedicate to people with Disability' },
-              { latitude: 53.982169, longitude: -6.392436, title: 'Disability Space', description: 'parking space dedicate to people with Disability' },
+    { latitude: 53.982125, longitude: -6.39268, title: 'Disability Space', description: 'parking space dedicate to people with Disability',icon: disability4_80 },
+      { latitude: 53.982133, longitude: -6.392628, title: 'Disability Space', description: 'parking space dedicate to people with Disability',icon: disability4_80 },
+        { latitude: 53.982143, longitude: -6.392578, title: 'Disability Space', description: 'parking space dedicate to people with Disability',icon: disability4_80 },
+          { latitude: 53.982154, longitude: -6.39253, title: 'Disability Space', description: 'parking space dedicate to people with Disability' ,icon: disability4_80},
+            { latitude: 53.98216, longitude: -6.392487, title: 'Disability Space', description: 'parking space dedicate to people with Disability' ,icon: disability4_80},
+              { latitude: 53.982169, longitude: -6.392436, title: 'Disability Space', description: 'parking space dedicate to people with Disability',icon: disability4_80 },
     // Add more markers as needed
   ];
 
@@ -93,7 +96,12 @@ const initiateInteraction = async () => {
   }
 };
 
+ const { isFlipped } = useLayout();
 
+  const buttonContainerStyle = [
+    styles.buttonContainer,
+    { flexDirection: isFlipped ? 'row-reverse' : 'row' }
+  ];
   return (
     <>   
       <AppHeader title="" imageUrl={require('../assets/images/logor.png')} />
@@ -105,7 +113,7 @@ const initiateInteraction = async () => {
             longitudeDelta={ 0.000210}
       />
    
-        <View style={styles.buttonContainer}>
+        <View style={buttonContainerStyle}>
           <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Image
               source={require('../assets/images/home_50.png')}
@@ -127,7 +135,7 @@ const initiateInteraction = async () => {
 
           <TouchableOpacity onPress={() => initiateInteraction ()}>
             <Image
-              source={require('../assets/images/iparkitprologo5.png')}
+              source={require('../assets/images/disability4_80.png')}
               style={{ width: itemSize*0.3, height: itemSize*0.3, borderRadius: 10 }}
             />
             <View style={styles.SeparatorLine} />
@@ -153,20 +161,20 @@ const styles = StyleSheet.create({
      backgroundColor: '#032370' 
 ,
     flex: 1,
-    padding: 20,
+    padding: 10,
     ...Platform.select({
       ios: {
         shadowColor: '#3452',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        shadowRadius: 1.84,
       },
       android: {
         elevation: 5,
       },
     }),
     backgroundColor: '#0000',
-    borderRadius: 10,
+    borderRadius: 5,
   },
   map: {
     flex: 1,

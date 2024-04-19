@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, Text, Image, Dimensions, ScrollView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Sound from 'react-native-sound';
-
+import { useLayout } from './LayoutContext';
 const playAudioAcknowledgment = () => {
   const buttonPressSound = "btn_press.wav";
   const buttonSound = new Sound(buttonPressSound, Sound.MAIN_BUNDLE, (error) => {
@@ -60,20 +60,42 @@ const GridButton = ({ name, image, label }) => {
   );
 };
 
-const GridLayout = () => (
-  <View style={styles.grid}>
-    <View style={{ flexDirection: 'row', justifyContent: 'space-around', flex: 1 }}>
-      {iconDataTop.map((icon, index) => (
-        <GridButton key={index} name={icon.name} image={icon.image} label={icon.label} />
-      ))}
+
+const GridLayout = () => {
+ const { isFlipped,isDriving } = useLayout();
+
+
+return(
+
+   <View style={styles.grid}>
+      <View style={{ flexDirection: isFlipped ? 'row-reverse' : 'row', justifyContent: 'space-around', flex: 1 }}>
+
+        {iconDataTop.map((icon, index) => (
+          (isDriving || (icon.name !== "Profile" && icon.name !== "Settings")) && (
+            <GridButton 
+              key={index} 
+              name={icon.name} 
+              image={icon.image} 
+              label={icon.label}
+            />
+          )
+        ))}
+      </View>
+      <View style={{ flexDirection: isFlipped ? 'row-reverse' : 'row', justifyContent: 'space-around', flex: 10 }}>
+        {iconDataBottom.map((icon, index) => (
+          (isDriving || (icon.name !== "Profile" && icon.name !== "Settings")) && (
+            <GridButton 
+              key={index} 
+              name={icon.name} 
+              image={icon.image} 
+              label={icon.label}
+            />
+          )
+        ))}
+      </View>
     </View>
-    <View style={{ flexDirection: 'row', justifyContent: 'space-around', flex: 10 }}>
-      {iconDataBottom.map((icon, index) => (
-        <GridButton key={index} name={icon.name} image={icon.image} label={icon.label} />
-      ))}
-    </View>
-  </View>
-);
+  )
+};
 
 const styles = StyleSheet.create({
   grid: {

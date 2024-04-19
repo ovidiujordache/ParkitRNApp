@@ -6,62 +6,30 @@ import AppHeader from './AppHeader';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 
-
+import { useLayout } from './LayoutContext';
 
 
 const StatusScreen = () => {
-  const errorSound="error.wav"
-  const parkedSound="parked.wav"
-  const [status, setStatus] = useState('red'); // Default status is red
-  const [findCarDisabled, setFindCarDisabled] = useState(true); // Button disabled by default
-  const [redLightOpacity] = useState(new Animated.Value(status === 'red' ? 1 : 0));
-  const [yellowLightOpacity] = useState(new Animated.Value(status === 'yellow' ? 1 : 0));
-  const [greenLightOpacity] = useState(new Animated.Value(status === 'green' ? 1 : 0));
-  const [message, setMessage] = useState('Not parked');
+
   const navigation = useNavigation();
 
-  useEffect(() => {
-    startSemaphoreAnimation();
-    // Enable "Find my car" button when status is green
-    setFindCarDisabled(status !== 'green');
-
-    // Set message based on status
-    if (status === 'green') {
-      setMessage('Parked !');
-    } else if (status === 'red') {
-      setMessage('Not Parked');
-    } else {
-      setMessage('Parking ....');
-    }
-  }, [status]);
-
-  const startSemaphoreAnimation = () => {
-    Animated.timing(redLightOpacity, {
-      toValue: status === 'red' ? 1 : 0,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
-    Animated.timing(yellowLightOpacity, {
-      toValue: status === 'yellow' ? 1 : 0,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
-    Animated.timing(greenLightOpacity, {
-      toValue: status === 'green' ? 1 : 0,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
-  };
+    const {
+    status, setStatus,
+    setIsDriving,
+    findCarDisabled, message,
+    redLightOpacity, yellowLightOpacity, greenLightOpacity
+  } = useLayout();
 
   const toggleStatus = () => {
     if (status === 'red') {
-      playSound(errorSound); // Play error sound when toggling to red
+      playSound('error.wav');
       setStatus('yellow');
     } else if (status === 'yellow') {
       setStatus('green');
-      playSound(parkedSound); // Play parked sound when toggling to green
+      setIsDriving(false);
+      playSound('parked.wav');
     } else {
-      playSound(errorSound); 
+      playSound('error.wav');
       setStatus('red');
     }
   };
@@ -108,12 +76,13 @@ const StatusScreen = () => {
         <TouchableOpacity style={styles.toggleButton} onPress={toggleStatus}>
           <Text style={styles.toggleButtonText}>Test Status</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.findCarButton, { backgroundColor: findCarDisabled ? '#ccc' : '#007bff' }]}
-          onPress={findMyCar}
-          disabled={findCarDisabled}>
-          <Text style={styles.findCarButtonText}>Find my car</Text>
-        </TouchableOpacity>
+ <TouchableOpacity
+        style={[styles.findCarButton, { backgroundColor: findCarDisabled ? '#ccc' : '#007bff' }]}
+        onPress={findMyCar}
+        disabled={findCarDisabled}>
+        <FontAwesome5 name="car" size={24} color="#FFFFFF" style={{ marginRight: 10 }} />
+        <Text style={styles.findCarButtonText}>Find my car</Text>
+      </TouchableOpacity>
       </View>
     </>
   );

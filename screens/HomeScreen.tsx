@@ -5,6 +5,7 @@ import GridLayout from './GridLayout';
 import Footer from './Footer';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+
 const HomeScreen = ({ navigation }) => {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
@@ -20,7 +21,9 @@ const HomeScreen = ({ navigation }) => {
           contentContainerStyle={{ flexGrow: 1 }}
           style={{  backgroundColor: '#032370'}}>
           <View style={[styles.container, { backgroundColor: isDarkMode ? Colors.black : Colors.white }]}>
+       
             <GridLayout />
+       
           </View>
         </ScrollView>
       {/*  <Footer />*/}

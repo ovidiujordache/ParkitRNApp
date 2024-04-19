@@ -1,25 +1,36 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity,Button ,  SafeAreaView,
   ScrollView,} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import AppHeader from './AppHeader'
 import Footer from './Footer'
-
+import { useLayout } from './LayoutContext';
 import useAudioPlayer from '../hooks/useAudioPlayer'; 
 
 
 
 
 
-
-
 const SettingsScreen = () => {
+ const  {toggleLayout ,setIsDriving,isFlipped,setIsFlipped} = useLayout();
+
+
    const navigation = useNavigation();
 
   const handleThemeChange = () => {
-    // Implement theme change logic
+
   };
+const handleDirectionLayout=()=>{
+    console.log("theme")
+    setIsFlipped(!isFlipped)
+
+}
+  const handleDisableWhileDriving = () => {
+    console.log("disable while driving")
+    setIsDriving()
+  };
+
 
   const handleClearParkingHistory = () => {
     // Implement logic to clear parking history
@@ -59,6 +70,7 @@ const buttonPressSound="btn_press.wav"
        <AppHeader title="" imageUrl={require('../assets/images/logor.png')} />
 
       <ScrollView>
+
     <View style={styles.container}>
           <TouchableOpacity style={styles.settingItem} onPress={handleGoBack}>
         <FontAwesome5 name="arrow-left" size={60}  style={styles.icon} />
@@ -79,10 +91,16 @@ const buttonPressSound="btn_press.wav"
         <Text style={styles.settingText}>EV Charging</Text>
       </TouchableOpacity>
        <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
-        setTimeout(() => { handleClearParkingHistory(); }, 600); }}>
-        <FontAwesome5 name="map" size={24}  style={styles.icon} />
+        setTimeout(() => { handleDisableWhileDriving(); }, 600); }}>
+        <FontAwesome5 name="car" size={24}  style={styles.icon} />
          <View style={styles.underline} />
-        <Text style={styles.settingText}>Proximity Spaces [future feature->find ]</Text>
+        <Text style={styles.settingText}>Disable While Driving</Text>
+      </TouchableOpacity>
+            <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
+        setTimeout(() => { handleDirectionLayout(); }, 600); }}>
+        <FontAwesome5 name="exchange-alt" size={24}  style={styles.icon} />
+         <View style={styles.underline} />
+        <Text style={styles.settingText}> {isFlipped ? 'To your left' : 'To your right'}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
@@ -117,7 +135,7 @@ const buttonPressSound="btn_press.wav"
       </TouchableOpacity>
 
     </View>
- 
+
 </ScrollView>
 
 

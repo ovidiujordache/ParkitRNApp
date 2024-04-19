@@ -22,6 +22,7 @@ const  Map= ({ markers, latitudeDelta, longitudeDelta }) => {
             longitude: markers.length > 0 ? markers[0].longitude : 0,
             latitudeDelta: latitudeDelta,
             longitudeDelta: longitudeDelta,
+
           }}>
           {markers.map((marker, index) => (
             <Marker
@@ -29,6 +30,7 @@ const  Map= ({ markers, latitudeDelta, longitudeDelta }) => {
               coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
               title={marker.title}
               description={marker.description}
+              image={marker.icon} 
             />
           ))}
         </MapView>

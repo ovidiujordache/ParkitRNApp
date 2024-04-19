@@ -8,8 +8,10 @@ import useAudioPlayer from '../hooks/useAudioPlayer';
 import useVoiceRecognition from '../hooks/useVoiceRecognition';
 import usePermissions from '../hooks/usePermissions'; 
 import useTextToSpeech from '../hooks/useTextToSpeech';
+import marker_plug from '../assets/images/marker_plug.png'
 import Map from './Map'
 const { width } = Dimensions.get('window');
+import { useLayout } from './LayoutContext';
 const itemSize = (width / 4) * 0.6;
 
 const EVMapScreen = ({ navigation }) => {
@@ -18,8 +20,17 @@ const EVMapScreen = ({ navigation }) => {
     const lat= 53.982967;
     const long=-6.391983;
     const markers = [
-    { latitude: 53.982967, longitude: -6.391983, title: 'EV Point', description: 'EV charge Point' },
-      { latitude: 53.982974, longitude: -6.39195, title: 'EV Point', description: 'EV charge Point' }
+    { latitude: 53.982967, 
+        longitude: -6.391983, 
+          title: 'EV Point',
+             description: 'EV charge Point',
+              icon:marker_plug },
+      { latitude: 53.982974, 
+          longitude: -6.39195, 
+            title: 'EV Point', 
+              description: 
+                'EV charge Point' ,
+                  icon:marker_plug}
     // Add more markers as needed
   ];
 
@@ -88,8 +99,12 @@ const initiateInteraction = async () => {
     console.error('Microphone permission is required to proceed.');
   }
 };
+ const { isFlipped } = useLayout();
 
-
+  const buttonContainerStyle = [
+    styles.buttonContainer,
+    { flexDirection: isFlipped ? 'row-reverse' : 'row' }
+  ];
   return (
     <>   
       <AppHeader title="" imageUrl={require('../assets/images/logor.png')} />
@@ -99,13 +114,14 @@ const initiateInteraction = async () => {
           <Map markers={markers} 
           latitudeDelta={ 0.00021}
             longitudeDelta={ 0.000210}
+
       />
    
-        <View style={styles.buttonContainer}>
+        <View style={buttonContainerStyle}>
           <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Image
               source={require('../assets/images/home_50.png')}
-              style={{ width: itemSize*0.3, height: itemSize*0.3, borderRadius: 10 }}
+              style={{ width: itemSize*0.2, height: itemSize*0.2, borderRadius: 10 }}
             />
             <View style={styles.SeparatorLine} />
             <Text style={styles.TextStyle}>Home</Text>
@@ -115,7 +131,7 @@ const initiateInteraction = async () => {
                <TouchableOpacity onPress={() => speakText('There are 3 spaces available')}>
             <Image
               source={require('../assets/images/search_51.png')}
-              style={{ width: itemSize*0.3, height: itemSize*0.3, borderRadius: 10 }}
+              style={{ width: itemSize*0.2, height: itemSize*0.2, borderRadius: 10 }}
             />
             <View style={styles.SeparatorLine} />
             <Text style={styles.TextStyle}>Search</Text>
@@ -123,8 +139,8 @@ const initiateInteraction = async () => {
 
           <TouchableOpacity onPress={() => initiateInteraction ()}>
             <Image
-              source={require('../assets/images/iparkitprologo5.png')}
-              style={{ width: itemSize*0.3, height: itemSize*0.3, borderRadius: 10 }}
+              source={require('../assets/images/marker_plug.png')}
+              style={{ width: itemSize*0.2, height: itemSize*0.2, borderRadius: 10 }}
             />
             <View style={styles.SeparatorLine} />
             <Text style={styles.TextStyle}>iParkitPro</Text>
@@ -144,25 +160,27 @@ const handleNavigation = (latitude, longitude) => {
 };
 
 
+
+
 const styles = StyleSheet.create({
   container: {
      backgroundColor: '#032370' 
 ,
     flex: 1,
-    padding: 20,
+    padding: 10,
     ...Platform.select({
       ios: {
         shadowColor: '#3452',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        shadowRadius: 1.84,
       },
       android: {
         elevation: 5,
       },
     }),
     backgroundColor: '#0000',
-    borderRadius: 10,
+    borderRadius: 5,
   },
   map: {
     flex: 1,

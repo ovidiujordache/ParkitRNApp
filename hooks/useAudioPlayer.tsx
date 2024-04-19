@@ -3,14 +3,14 @@ import { useCallback } from 'react';
 import Sound from 'react-native-sound';
 
 const useAudioPlayer = () => {
-  // Function to play an audio file
+
   const playSound = useCallback((fileName) => {
     const sound = new Sound(fileName, Sound.MAIN_BUNDLE, (error) => {
       if (error) {
         console.log('Failed to load the sound', error);
         return;
       }
-      // Play the loaded sound
+    
       sound.play((success) => {
         if (!success) {
           console.log('Failed to play the sound');

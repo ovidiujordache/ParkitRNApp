@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, useWindowDimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import { useLayout } from './LayoutContext';
 const Footer = () => {
   const windowWidth = useWindowDimensions().width;
   const isSmallScreen = windowWidth < 600; // Adjust the threshold based on your tablet's screen size
