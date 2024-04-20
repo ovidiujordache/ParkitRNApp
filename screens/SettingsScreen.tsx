@@ -7,6 +7,7 @@ import AppHeader from './AppHeader'
 import Footer from './Footer'
 import { useLayout } from './LayoutContext';
 import useAudioPlayer from '../hooks/useAudioPlayer'; 
+import EVInfoModal from './modals/EVInfoModal';
 
 
 
@@ -14,6 +15,7 @@ import useAudioPlayer from '../hooks/useAudioPlayer';
 
 const SettingsScreen = () => {
  const  {toggleLayout ,setIsDriving,isFlipped,setIsFlipped} = useLayout();
+ const [modalVisible, setModalVisible] = useState(false);
 
 
    const navigation = useNavigation();
@@ -48,6 +50,9 @@ const handleDirectionLayout=()=>{
   }
     const handleSoundSettings=()=>{
            navigation.navigate("Home");
+  }
+  const handleEVInfo=()=>{
+      setModalVisible(true);
   }
 
   const playSound = useAudioPlayer();
@@ -84,12 +89,19 @@ const buttonPressSound="btn_press.wav"
         <Text style={styles.settingText}>Disabled Spaces</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.settingItem} onPress={() => {  playAudioAcknowledgment();
-        setTimeout(() => { handleThemeChange(); }, 600); }}>
+        setTimeout(() => { handleEVInfo(); }, 600); }}>
         <FontAwesome5 name="plug" size={24}  style={{color:"red" , padding:10,
     marginRight: 10,}} />
          <View style={styles.underline} />
         <Text style={styles.settingText}>EV Charging</Text>
       </TouchableOpacity>
+
+
+         <EVInfoModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+      />
+       
        <TouchableOpacity style={styles.settingItem} onPress={() => { playAudioAcknowledgment();
         setTimeout(() => { handleDisableWhileDriving(); }, 600); }}>
         <FontAwesome5 name="car" size={24}  style={styles.icon} />

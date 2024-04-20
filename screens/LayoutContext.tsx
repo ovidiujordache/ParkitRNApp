@@ -8,7 +8,7 @@ export const useLayout = () => useContext(LayoutContext);
 export const LayoutProvider = ({ children }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDriving, setIsDriving] = useState(false);
-  const [status, setStatus] = useState('red');
+  const [status, setStatus] = useState('green');
   const [findCarDisabled, setFindCarDisabled] = useState(true);
   const [message, setMessage] = useState('Not parked');
 

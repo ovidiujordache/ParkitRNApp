@@ -21,7 +21,7 @@ import EVMapScreen from './screens/EVMapScreen'
 
 import DisabilityMapScreen from './screens/DisabilityMapScreen'
 import { LayoutProvider } from './screens/LayoutContext'
-
+import LoginScreen from './screens/LoginScreen'
 import {
   SafeAreaView,
   ScrollView,
@@ -55,8 +55,10 @@ function App(): React.JSX.Element {
 
   return (
    <LayoutProvider>
-          <NavigationContainer>
+          <NavigationContainer>{/*
+           <Stack.Navigator initialRouteName="Login">*/}
 <Stack.Navigator>
+<Stack.Screen name="Login" component={LoginScreen}  options={{ headerShown: false }} />
   <Stack.Screen name="Home" component={HomeScreen}  options={{ headerShown: false }} />
   <Stack.Screen name="AboutUs" component={AboutUsScreen}   options={{ headerShown: false }} />
    <Stack.Screen name="GoogleMap" component={MapScreen}   options={{ headerShown: false }} />
