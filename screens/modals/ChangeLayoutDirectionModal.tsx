@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, StyleSheet,Image } from 'react-native';
 import { useLayout } from '../LayoutContext';
 
 
@@ -25,11 +25,15 @@ const handleDirectionLayout=()=>{
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
+             <Image
+            source={require('../../assets/images/ltr.jpg')} // Ensure you have an image at this path
+            style={styles.imageStyle}
+          />
           <Text style={styles.itemText}>Do you want to change Application Layout ?</Text>
 
             <Text style={styles.itemText}></Text>
-   <View style={styles.buttonContainer}>
-
+        <View style={styles.buttonContainer}>
+         
           <TouchableOpacity style={styles.button} onPress={()=>handleDirectionLayout()}>
             <Text style={styles.buttonText}>Yes</Text>
           </TouchableOpacity>
@@ -96,7 +100,13 @@ const styles = StyleSheet.create({
        color: 'white',
     fontWeight: 'bold',
     textAlign: 'center'
-  }
+  },
+  paddingTop:1,
+    imageStyle: {
+    width: 400,
+    height:130,
+    marginBottom: 20
+  },
 
 });
 

@@ -122,7 +122,7 @@ const buttonPressSound="btn_press.wav"
         setTimeout(() => { handleDisableWhileDriving(); }, 600); }}>
         <FontAwesome5 name="car" size={24}  style={styles.icon} />
          <View style={styles.underline} />
-        <Text style={styles.settingText}>Disable While Driving</Text>
+        <Text style={styles.settingText}>Driving Mode</Text>
                  <DisableWhileDrivingModal
         visible={modalVisibleDWD}
         onClose={() => setModalVisibleDWD(false)}

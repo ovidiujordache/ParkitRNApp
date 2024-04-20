@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, StyleSheet,ScrollView } from 'react-native';
 
 const CarParkPolicyModal = ({ visible, onClose }) => {
 
@@ -20,6 +20,9 @@ const CarParkPolicyModal = ({ visible, onClose }) => {
   ];
 
   return (
+    <>
+
+
     <Modal
       animationType="slide"
       transparent={true}
@@ -28,6 +31,7 @@ const CarParkPolicyModal = ({ visible, onClose }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
+                <ScrollView>
           <Text style={styles.modalText}>Important Information</Text>
           {policy.map((item, index) => (
             <Text key={index} style={styles.itemText}>{item}</Text>
@@ -35,9 +39,14 @@ const CarParkPolicyModal = ({ visible, onClose }) => {
           <TouchableOpacity style={styles.button} onPress={onClose}>
             <Text style={styles.buttonText}>Close</Text>
           </TouchableOpacity>
+           </ScrollView>
         </View>
+         
+
       </View>
     </Modal>
+
+  </>
   );
 };
 

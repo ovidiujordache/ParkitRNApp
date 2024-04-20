@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, StyleSheet,  ScrollView} from 'react-native';
 
 const AboutModal = ({ visible, onClose }) => {
 
@@ -7,7 +7,7 @@ const AboutModal = ({ visible, onClose }) => {
  
      const about = [
 "About Applicattion",
-"Using AI technology, detect empty car park spaces.",
+"Using AI technology, to detect empty car park spaces.",
 "College: DKIT",
 "Year: 4",
 "Programme: Software Development",
@@ -28,7 +28,7 @@ const AboutModal = ({ visible, onClose }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-
+ <ScrollView>
               <Text style={styles.warning}>DO NOT USE THIS APP WHILE DRIVING !!!</Text>
           <Text style={styles.modalText}>Important Information</Text>
           {about.map((item, index) => (
@@ -39,9 +39,10 @@ const AboutModal = ({ visible, onClose }) => {
             <Text style={styles.buttonText}>OK.</Text>
 
           </TouchableOpacity>
-
+    
+ </ScrollView>
         </View>
-               <Text style={styles.warning}>DO NOT USE THIS APP WHILE DRIVING !!!</Text>
+             
       </View>
     </Modal>
   );
@@ -85,8 +86,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: '#2196F3',
     padding: 10,
+    paddingBottom:20,
     elevation: 2,
     borderRadius: 20
+
   },
   buttonText: {
     color: 'white',
@@ -94,10 +97,12 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   warning:{
-    fontSize:40,
+    fontSize:26,
     color:'yellow',
     backgroundColor:"black",
-    padding:20,
+    paddingTop:20,
+    paddingLeft:30,
+    padding:10,
     borderRadius:10
 
   }
