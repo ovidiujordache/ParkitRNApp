@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useLayout } from '../LayoutContext';
 
-const EVInfoModal = ({ visible, onClose }) => {
-    const currentDate = new Date().toLocaleDateString(); 
-  const infoItems = [
-    "Price /KW : 0.40 €",
-    "Price parking/h : 2 €",
-  `Price Updated: ${currentDate}`  ];
+
+
+const ChangeLayoutDirectionModal = ({ visible, onClose }) => {
+
+const  {toggleLayout ,setIsDriving,isFlipped,setIsFlipped} = useLayout();
+  const message = "This action will modify the  interface to  eliminate distractions,\n and enhance focus on DRIVING";
+const handleDirectionLayout=()=>{
+    console.log("theme")
+    setIsFlipped(!isFlipped)
+    onClose();
+
+}
+
 
   return (
     <Modal
@@ -17,13 +25,18 @@ const EVInfoModal = ({ visible, onClose }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalText}>Important Information</Text>
-          {infoItems.map((item, index) => (
-            <Text key={index} style={styles.itemText}>{item}</Text>
-          ))}
-          <TouchableOpacity style={styles.button} onPress={onClose}>
-            <Text style={styles.buttonText}>Close</Text>
+          <Text style={styles.itemText}>Do you want to change Application Layout ?</Text>
+
+            <Text style={styles.itemText}></Text>
+   <View style={styles.buttonContainer}>
+
+          <TouchableOpacity style={styles.button} onPress={()=>handleDirectionLayout()}>
+            <Text style={styles.buttonText}>Yes</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={()=>onClose()}>
+            <Text style={styles.buttonText}>No</Text>
+          </TouchableOpacity>
+          </View>
         </View>
       </View>
     </Modal>
@@ -64,18 +77,27 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color:'#182d05'
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    marginTop: 10
+  },
+   
   button: {
+    margin:20,
     marginTop: 20,
-    backgroundColor: '#2196F3',
+
     padding: 10,
-    elevation: 2,
-    borderRadius: 20
+    elevation: 6,
+    borderRadius: 20,
+    backgroundColor: '#2196F3',
   },
   buttonText: {
-    color: 'white',
+    fontSize:20,
+       color: 'white',
     fontWeight: 'bold',
     textAlign: 'center'
   }
+
 });
 
-export default EVInfoModal;
+export default ChangeLayoutDirectionModal;

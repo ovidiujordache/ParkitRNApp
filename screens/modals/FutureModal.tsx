@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const EVInfoModal = ({ visible, onClose }) => {
-    const currentDate = new Date().toLocaleDateString(); 
-  const infoItems = [
-    "Price /KW : 0.40 €",
-    "Price parking/h : 2 €",
-  `Price Updated: ${currentDate}`  ];
+const FutureModal = ({ visible, onClose }) => {
+
+
+
 
   return (
     <Modal
@@ -17,14 +15,17 @@ const EVInfoModal = ({ visible, onClose }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalText}>Important Information</Text>
-          {infoItems.map((item, index) => (
-            <Text key={index} style={styles.itemText}>{item}</Text>
-          ))}
+
+          <Text style={styles.itemText}>To be implemented ...</Text>
+      
           <TouchableOpacity style={styles.button} onPress={onClose}>
-            <Text style={styles.buttonText}>Close</Text>
+
+            <Text style={styles.buttonText}>OK.</Text>
+
           </TouchableOpacity>
+
         </View>
+ 
       </View>
     </Modal>
   );
@@ -75,7 +76,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center'
-  }
+  },
+
 });
 
-export default EVInfoModal;
+export default FutureModal;

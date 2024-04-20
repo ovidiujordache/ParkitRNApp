@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const EVInfoModal = ({ visible, onClose }) => {
-    const currentDate = new Date().toLocaleDateString(); 
-  const infoItems = [
-    "Price /KW : 0.40 €",
-    "Price parking/h : 2 €",
-  `Price Updated: ${currentDate}`  ];
+const AboutModal = ({ visible, onClose }) => {
+
+
+ 
+     const about = [
+"About Applicattion",
+"Using AI technology, detect empty car park spaces.",
+"College: DKIT",
+"Year: 4",
+"Programme: Software Development",
+"Developed by : Ovi [The Guy with the band]",
+"Dublin 2024",
+
+
+  
+      
+  ];
 
   return (
     <Modal
@@ -17,14 +28,20 @@ const EVInfoModal = ({ visible, onClose }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
+
+              <Text style={styles.warning}>DO NOT USE THIS APP WHILE DRIVING !!!</Text>
           <Text style={styles.modalText}>Important Information</Text>
-          {infoItems.map((item, index) => (
+          {about.map((item, index) => (
             <Text key={index} style={styles.itemText}>{item}</Text>
           ))}
           <TouchableOpacity style={styles.button} onPress={onClose}>
-            <Text style={styles.buttonText}>Close</Text>
+
+            <Text style={styles.buttonText}>OK.</Text>
+
           </TouchableOpacity>
+
         </View>
+               <Text style={styles.warning}>DO NOT USE THIS APP WHILE DRIVING !!!</Text>
       </View>
     </Modal>
   );
@@ -75,7 +92,15 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  warning:{
+    fontSize:40,
+    color:'yellow',
+    backgroundColor:"black",
+    padding:20,
+    borderRadius:10
+
   }
 });
 
-export default EVInfoModal;
+export default AboutModal;

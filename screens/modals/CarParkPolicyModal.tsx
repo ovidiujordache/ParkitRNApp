@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const EVInfoModal = ({ visible, onClose }) => {
-    const currentDate = new Date().toLocaleDateString(); 
-  const infoItems = [
-    "Price /KW : 0.40 €",
-    "Price parking/h : 2 €",
-  `Price Updated: ${currentDate}`  ];
+const CarParkPolicyModal = ({ visible, onClose }) => {
+
+
+ 
+     const policy = [
+"IMPORTANT:The new car parking policy is as follows",
+"1): Park only in marked parking spaces and entirely within the space as marked.",
+"2): Do not park elsewhere.",
+"3): Any car that is not parked in a designated car parking space is liable to be clamped.",
+"4): The unclamping fee is €60.",
+"5): From 1st September 2008 a proportion of spaces at the Institute will be subject to a Pay & Display rate of 30c/hour or €2/day or €8/week.",
+"6): Any car not displaying a valid pay and display ticket is liable to be clamped. The payment of a daily or weekly rate does not guarantee a space.",
+"7): Other terms and conditions are set out in the FAQ Car parking (i.e. this document).",
+"link :https://www.dkit.ie/assets/uploads/documents/FAQ/DkIT_Car_Parking_FAQ.pdf"
+  
+      
+  ];
 
   return (
     <Modal
@@ -18,7 +29,7 @@ const EVInfoModal = ({ visible, onClose }) => {
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <Text style={styles.modalText}>Important Information</Text>
-          {infoItems.map((item, index) => (
+          {policy.map((item, index) => (
             <Text key={index} style={styles.itemText}>{item}</Text>
           ))}
           <TouchableOpacity style={styles.button} onPress={onClose}>
@@ -78,4 +89,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default EVInfoModal;
+export default CarParkPolicyModal;

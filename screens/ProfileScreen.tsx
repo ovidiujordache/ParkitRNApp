@@ -13,8 +13,8 @@ const ProfileScreen = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
 const [details, setDetails] = useState({
-  name: 'John Doe',
-  email: 'john@example.com',
+  name: 'The Guy With The Band',
+  email: 'iparkitpro@email.com',
 });
 
 
