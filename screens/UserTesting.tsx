@@ -9,7 +9,7 @@ const UserTesting = () => {
 
     return (
         <TouchableOpacity onPress={openForm} style={styles.button}>
-            <Text style={styles.text}>User Testing</Text>
+            <Text style={styles.text}>User Feedback</Text>
         </TouchableOpacity>
     );
 };
