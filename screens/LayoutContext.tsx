@@ -28,10 +28,10 @@ export const LayoutProvider = ({ children }) => {
       setIsDriving(true)
     } else if (status === 'red') {
       setMessage('Not Parked');
-         setIsDriving(false)
+      setIsDriving(false)
     } else {
       setMessage('Parking ....');
-         setIsDriving(false)
+      setIsDriving(false)
     }
   }, [status]);
 

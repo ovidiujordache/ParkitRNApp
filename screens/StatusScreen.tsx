@@ -26,11 +26,12 @@ const StatusScreen = () => {
       setStatus('yellow');
     } else if (status === 'yellow') {
       setStatus('green');
-      setIsDriving(false);
+ 
       playSound('parked.wav');
     } else {
       playSound('error.wav');
       setStatus('red');
+
     }
   };
 
@@ -76,13 +77,12 @@ const StatusScreen = () => {
         <TouchableOpacity style={styles.toggleButton} onPress={toggleStatus}>
           <Text style={styles.toggleButtonText}>Test Status</Text>
         </TouchableOpacity>
- <TouchableOpacity
-        style={[styles.findCarButton, { backgroundColor: findCarDisabled ? '#ccc' : '#007bff' }]}
-        onPress={findMyCar}
-        disabled={findCarDisabled}>
-        <FontAwesome5 name="car" size={24} color="#FFFFFF" style={{ marginRight: 10 }} />
-        <Text style={styles.findCarButtonText}>Find my car</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.findCarButton, { backgroundColor: findCarDisabled ? '#ccc' : '#007bff' }]}
+          onPress={findMyCar}
+          disabled={findCarDisabled}>
+          <Text style={styles.findCarButtonText}>Find my car</Text>
+        </TouchableOpacity>
       </View>
     </>
   );

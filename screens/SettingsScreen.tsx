@@ -132,7 +132,7 @@ const buttonPressSound="btn_press.wav"
         setTimeout(() => { handleDirectionLayout(); }, 600); }}>
         <FontAwesome5 name="exchange-alt" size={24}  style={styles.icon} />
          <View style={styles.underline} />
-        <Text style={styles.settingText}> {isFlipped ? 'Change Layout LTR' : 'Change Layout RTL'}</Text>
+        <Text style={styles.settingText}> {isFlipped ? 'Right Hand Drive Layout' : 'Left Hand Drive Layout'}</Text>
                          < ChangeLayoutDirectionModal
         visible={modalVisibleDirection}
         onClose={() => setModalVisibleDirection(false)}

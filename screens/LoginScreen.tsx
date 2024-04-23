@@ -1,34 +1,55 @@
 import React, { useState } from 'react';
 
-import { View, TextInput, Button, StyleSheet, Alert,TouchableOpacity,Text } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Alert,TouchableOpacity,Text,Image ,Dimensions,ScrollView} from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
 import AppHeader from './AppHeader';
 
+import WarningModal from '../screens/modals/WarningModal'
 
 const LoginScreen = () => {
+
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [alertVisible, setAlertVisible] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+
    const navigation = useNavigation();
   const handleLogin = () => {
-    // Here you would typically handle authentication.
-    // This example just checks if the fields are not empty.
     if (!username.trim() || !password.trim()) {
-      Alert.alert('Error', 'Please enter username and password!');
-    } else {
-      Alert.alert('Success', 'You are logged in');
-      // Further processing like navigation or API calls.
-          navigation.navigate("Home");
 
+              setAlertMessage('DO NOT USE THIS APP WHILE DRIVING!\n\n\n\n'+
+                'Please enter username and password!');
+      setAlertVisible(true);
+
+    } else {
+      setAlertMessage('DO NOT USE THIS APP WHILE DRIVING!\n\n\n'+
+        'DO NOT USE THIS APP WHILE DRIVING!\n\n\n'+
+        'DO NOT USE THIS APP WHILE DRIVING!');
+      setAlertVisible(true);
+
+    
+ 
+  
     }
+  }
+  const handleOnClose=()=>{
+
+      setAlertVisible(false);
+      if (username.trim() && password.trim()) {
+      navigation.navigate("Home");
+    }
+
   };
 
   return (
     <>
       <AppHeader title="" imageUrl={require('../assets/images/logor.png')} />
+         <ScrollView style={{backgroundColor: '#50cf92',}}>
     <View style={styles.container}>
-
+             
       <TextInput
         style={styles.input}
         placeholder="Username"
@@ -47,8 +68,15 @@ const LoginScreen = () => {
         <TouchableOpacity style={styles.button} onPress={()=>handleLogin()}>
             <Text style={styles.buttonTextClose}>Login</Text>
           </TouchableOpacity>
+
+             <WarningModal
+        visible={alertVisible}
+        message={alertMessage}
+        onClose={() => {handleOnClose()}}
+      />
       </View>
     </View>
+       </ScrollView>
     </>
   );
 };
@@ -59,7 +87,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center', 
     padding: 20,
-    backgroundColor: '#50cf92', // Updated background color
+    backgroundColor: '#50cf92', 
   },
   input: {
     height: 40,
@@ -67,7 +95,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderWidth: 2,
     padding: 10,
-    fontSize: 16, // Increased font size
+    fontSize: 16, 
     marginLeft: 10,
     color: '#060000',
      borderRadius: 10,
@@ -91,5 +119,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center'
   },
+
 });
 export default LoginScreen;

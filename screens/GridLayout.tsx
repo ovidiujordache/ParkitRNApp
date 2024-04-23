@@ -34,11 +34,19 @@ const iconDataBottom = [
   { name: "Settings", image: require('../assets/images/settings_50.png'), label: 'Settings' },
 
   { name: "DisabilityMap", image: require('../assets/images/disability3_50.png'), label: 'Disability Spaces' },
-  { name: "Status", image: require('../assets/images/status_50.png'), label: 'Status' },
+  { name: "Status",label: 'Status' },
 ];
 
 const GridButton = ({ name, image, label }) => {
+
+
+const status_blue = require('../assets/images/status_blue.jpg');
+const status_yellow = require('../assets/images/status_yellow.jpg');
+
+  const { isFlipped,isDriving,setStatus, status } = useLayout();
   const navigation = useNavigation();
+
+ image = name === "Status" ? (status === 'green' ? status_blue : status_yellow ): image;
 
   const navigateToScreen = () => {
     console.log(name);
@@ -52,7 +60,7 @@ const GridButton = ({ name, image, label }) => {
         setTimeout(navigateToScreen, 600);
       }}>
         <View style={{ borderRadius: 80, overflow: 'hidden', marginHorizontal: 20 }}>
-          <Image source={image} style={{ width: itemSize, height: itemSize}} />
+          <Image source={image} style={styles.image} />
         </View>
         <Text style={styles.label}>{label}</Text>
       </TouchableOpacity>
@@ -62,35 +70,33 @@ const GridButton = ({ name, image, label }) => {
 
 
 const GridLayout = () => {
- const { isFlipped,isDriving } = useLayout();
+ const { isFlipped,isDriving,setStatus, status } = useLayout();
 
-
-return(
-
-   <View style={styles.grid}>
+  return (
+    <View style={styles.grid}>
       <View style={{ flexDirection: isFlipped ? 'row-reverse' : 'row', justifyContent: 'space-around', flex: 1 }}>
-
         {iconDataTop.map((icon, index) => (
-          (isDriving || (icon.name !== "Profile" && icon.name !== "Settings")) && (
+          (isDriving || (icon.name !== "Profile" && icon.name !== "Settings")) ? (
             <GridButton 
               key={index} 
               name={icon.name} 
               image={icon.image} 
               label={icon.label}
             />
-          )
+          ) : <View key={index}style={styles.placeholderView}/>
         ))}
       </View>
       <View style={{ flexDirection: isFlipped ? 'row-reverse' : 'row', justifyContent: 'space-around', flex: 10 }}>
         {iconDataBottom.map((icon, index) => (
-          (isDriving || (icon.name !== "Profile" && icon.name !== "Settings")) && (
+          (isDriving || (icon.name !== "Profile" && icon.name !== "Settings")) ? (
             <GridButton 
               key={index} 
               name={icon.name} 
               image={icon.image} 
               label={icon.label}
+              
             />
-          )
+          ) : <View key={index} style={styles.placeholderView} />
         ))}
       </View>
     </View>
@@ -108,12 +114,29 @@ const styles = StyleSheet.create({
     fontSize: 20,  
     fontWeight: 'bold',  
   },
+   image: {
+    width: itemSize,
+    height: itemSize,
+  
+  
+  },
   delimiter: {
     padding: 10,
     height: 1,
     backgroundColor: '#00763d',
     marginVertical: 10,
   },
+  placeholderView:{
+  
+    justifyContent: 'space-around',
+     flex: 2, 
+     width: itemSize, 
+
+     height: itemSize,
+     margin: 10
+  }
+
+
 });
 
 export default GridLayout;

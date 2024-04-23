@@ -26,7 +26,7 @@ const handleDirectionLayout=()=>{
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
              <Image
-            source={require('../../assets/images/ltr.jpg')} // Ensure you have an image at this path
+            source={require('../../assets/images/direction.jpg')} // Ensure you have an image at this path
             style={styles.imageStyle}
           />
           <Text style={styles.itemText}>Do you want to change Application Layout ?</Text>
@@ -76,12 +76,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   itemText: {
+
     textAlign: 'center',
     fontSize: 20,
     marginBottom: 10,
     color:'#182d05'
   },
   buttonContainer: {
+
     flexDirection: 'row',
     marginTop: 10
   },
@@ -101,11 +103,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center'
   },
-  paddingTop:1,
+  
     imageStyle: {
     width: 400,
-    height:130,
-    marginBottom: 20
+    height:170,
+    marginBottom:10,
+    
   },
 
 });
