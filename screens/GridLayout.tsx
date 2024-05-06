@@ -34,6 +34,8 @@ const iconDataBottom = [
   { name: "Settings", image: require('../assets/images/settings_50.png'), label: 'Settings' },
 
   { name: "DisabilityMap", image: require('../assets/images/disability3_50.png'), label: 'Disability Spaces' },
+
+
   { name: "Status",label: 'Status' },
 ];
 
