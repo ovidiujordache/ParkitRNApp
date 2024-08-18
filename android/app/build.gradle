@@ -6,6 +6,7 @@ apply plugin: "com.facebook.react"
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
  */
+
 react {
     /* Folders */
     //   The root of your project, i.e. where "package.json" lives. Default is '..'
@@ -55,7 +56,20 @@ react {
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
 def enableProguardInReleaseBuilds = false
+def getLocalProperties() {
+    def properties = new Properties()
+    def localPropertiesFile = new File(rootProject.projectDir, 'local.properties')
+    if (localPropertiesFile.exists()) {
+        localPropertiesFile.withInputStream { stream ->
+            properties.load(stream)
+        }
+    }
+    return properties
+}
 
+
+def properties = getLocalProperties()
+def googleApiKey = properties.getProperty("GOOGLE_API_KEY", "")
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
  *
@@ -81,6 +95,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [googleApiKey: googleApiKey]
     }
     signingConfigs {
         debug {
@@ -104,6 +119,7 @@ android {
         }
     }
 }
+
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
